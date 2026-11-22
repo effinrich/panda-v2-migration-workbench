@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "unicorn", "jsx-a11y"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "rules": {
+    "typescript/no-explicit-any": "error",
+    "unicorn/filename-case": [
+      "error",
+      {
+        "case": "kebabCase"
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "react/forbid-dom-props": [
+      "error",
+      {
+        "forbid": ["style"]
+      }
+    ]
+  },
+  "ignorePatterns": ["dist", "storybook-static", "node_modules", "scripts"]
+}

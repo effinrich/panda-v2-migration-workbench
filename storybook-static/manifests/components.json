@@ -1,0 +1,199 @@
+{
+  "v": 0,
+  "components": {
+    "app-migrationworkbench": {
+      "id": "app-migrationworkbench",
+      "name": "App",
+      "path": "./src/app/app.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "SB_CORE-COMMON_0034 (TypeScriptWithoutCompilerApiError)",
+        "message": "Storybook found TypeScript 7.0.2 as the `typescript` package. TypeScript 7 does not include the compiler API that Storybook uses to read your component types for Controls and the Docs args table.\n\nIf package.json has no `typescript` entry, your package manager installed TypeScript 7 for Storybook's peer dependency. Add `typescript@^6` to the devDependencies in package.json.\n\nIf your project uses TypeScript 7, install TypeScript 7 and TypeScript 6 side by side. In package.json, replace the `typescript` entry in devDependencies with these two entries:\n\n  \"@typescript/native\": \"npm:typescript@^7.0.2\",\n  \"typescript\": \"npm:@typescript/typescript6@^6.0.2\"\n\n`tsc` stays on TypeScript 7, and the `typescript` package is TypeScript 6. Both entries are necessary.\n\nThen install dependencies and restart Storybook.\n\nMore info: https://storybook.js.org/docs/configure/integration/typescript?ref=error#typescript-7\n"
+      },
+      "stories": [
+        {
+          "id": "app-migrationworkbench--end-to-end-workstation-navigation",
+          "name": "End To End Workstation Navigation",
+          "snippet": "const EndToEndWorkstationNavigation = () => <App />;"
+        }
+      ],
+      "import": "import App from './app';"
+    },
+    "features-architecturecompare-compareview": {
+      "id": "features-architecturecompare-compareview",
+      "name": "CompareView",
+      "path": "./src/features/architecture-compare/compare-view/compare-view.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "SB_CORE-COMMON_0034 (TypeScriptWithoutCompilerApiError)",
+        "message": "Storybook found TypeScript 7.0.2 as the `typescript` package. TypeScript 7 does not include the compiler API that Storybook uses to read your component types for Controls and the Docs args table.\n\nIf package.json has no `typescript` entry, your package manager installed TypeScript 7 for Storybook's peer dependency. Add `typescript@^6` to the devDependencies in package.json.\n\nIf your project uses TypeScript 7, install TypeScript 7 and TypeScript 6 side by side. In package.json, replace the `typescript` entry in devDependencies with these two entries:\n\n  \"@typescript/native\": \"npm:typescript@^7.0.2\",\n  \"typescript\": \"npm:@typescript/typescript6@^6.0.2\"\n\n`tsc` stays on TypeScript 7, and the `typescript` package is TypeScript 6. Both entries are necessary.\n\nThen install dependencies and restart Storybook.\n\nMore info: https://storybook.js.org/docs/configure/integration/typescript?ref=error#typescript-7\n"
+      },
+      "stories": [
+        {
+          "id": "features-architecturecompare-compareview--interactive-weighting-simulator",
+          "name": "Interactive Weighting Simulator",
+          "snippet": "const InteractiveWeightingSimulator = (args) => {\n  const [weights, setWeights] = useState<DecisionWeights>(args.weights);\n  const verdict = useMemo(\n    () => calculateComparisonVerdict(args.dimensions, weights),\n    [args.dimensions, weights]\n  );\n  return (\n    <CompareView\n      dimensions={ARCHITECTURE_DIMENSIONS}\n      weights={weights}\n      verdict={verdict}\n      onUpdateWeights={(patch) => {\n        setWeights((prev) => ({ ...prev, ...patch }));\n        args.onUpdateWeights(patch);\n      }}\n    />\n  );\n};"
+        }
+      ],
+      "import": "import { CompareView } from './compare-view';\nimport { ARCHITECTURE_DIMENSIONS } from '../../../shared/data/comparison';\nimport { DEFAULT_WEIGHTS, calculateComparisonVerdict } from '../../../shared/utils/calculations';\nimport { fn } from 'storybook/test';"
+    },
+    "features-blockers-blockersview": {
+      "id": "features-blockers-blockersview",
+      "name": "BlockersView",
+      "path": "./src/features/blockers/blockers-view/blockers-view.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "SB_CORE-COMMON_0034 (TypeScriptWithoutCompilerApiError)",
+        "message": "Storybook found TypeScript 7.0.2 as the `typescript` package. TypeScript 7 does not include the compiler API that Storybook uses to read your component types for Controls and the Docs args table.\n\nIf package.json has no `typescript` entry, your package manager installed TypeScript 7 for Storybook's peer dependency. Add `typescript@^6` to the devDependencies in package.json.\n\nIf your project uses TypeScript 7, install TypeScript 7 and TypeScript 6 side by side. In package.json, replace the `typescript` entry in devDependencies with these two entries:\n\n  \"@typescript/native\": \"npm:typescript@^7.0.2\",\n  \"typescript\": \"npm:@typescript/typescript6@^6.0.2\"\n\n`tsc` stays on TypeScript 7, and the `typescript` package is TypeScript 6. Both entries are necessary.\n\nThen install dependencies and restart Storybook.\n\nMore info: https://storybook.js.org/docs/configure/integration/typescript?ref=error#typescript-7\n"
+      },
+      "stories": [
+        {
+          "id": "features-blockers-blockersview--filter-and-mitigate-blockers",
+          "name": "Filter And Mitigate Blockers",
+          "snippet": "const FilterAndMitigateBlockers = (args) => {\n  const [mitigated, setMitigated] = useState<string[]>(args.mitigatedBlockers);\n  return (\n    <BlockersView\n      onNotify={fn()}\n      mitigatedBlockers={mitigated}\n      onToggleMitigated={(id) => {\n        setMitigated((prev) =>\n          prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]\n        );\n        args.onToggleMitigated(id);\n      }}\n    />\n  );\n};"
+        }
+      ],
+      "import": "import { BlockersView } from './blockers-view';\nimport { fn } from 'storybook/test';"
+    },
+    "features-briefexport-exportbriefmodal": {
+      "id": "features-briefexport-exportbriefmodal",
+      "name": "ExportBriefModal",
+      "path": "./src/features/brief-export/export-brief-modal/export-brief-modal.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "SB_CORE-COMMON_0034 (TypeScriptWithoutCompilerApiError)",
+        "message": "Storybook found TypeScript 7.0.2 as the `typescript` package. TypeScript 7 does not include the compiler API that Storybook uses to read your component types for Controls and the Docs args table.\n\nIf package.json has no `typescript` entry, your package manager installed TypeScript 7 for Storybook's peer dependency. Add `typescript@^6` to the devDependencies in package.json.\n\nIf your project uses TypeScript 7, install TypeScript 7 and TypeScript 6 side by side. In package.json, replace the `typescript` entry in devDependencies with these two entries:\n\n  \"@typescript/native\": \"npm:typescript@^7.0.2\",\n  \"typescript\": \"npm:@typescript/typescript6@^6.0.2\"\n\n`tsc` stays on TypeScript 7, and the `typescript` package is TypeScript 6. Both entries are necessary.\n\nThen install dependencies and restart Storybook.\n\nMore info: https://storybook.js.org/docs/configure/integration/typescript?ref=error#typescript-7\n"
+      },
+      "stories": [
+        {
+          "id": "features-briefexport-exportbriefmodal--preview-and-close-dialog",
+          "name": "Preview And Close Dialog",
+          "snippet": "const PreviewAndCloseDialog = () => <ExportBriefModal markdown={`# Architecture Brief: Park UI Fork (Panda v2) vs. Greenfield Ark UI + Panda v2\n\n## 1. Executive Verdict\n- **Target Scope**: 42 React components\n- **Migration Difficulty**: Moderate (~32h / 5 days)\n- **Style Policy**: Zero inline style attributes enforced via Oxlint/ESLint`} onClose={fn()} onNotify={fn()} />;"
+        }
+      ],
+      "import": "import { ExportBriefModal } from './export-brief-modal';\nimport { fn } from 'storybook/test';"
+    },
+    "features-componentmatrix-componentmatrixview": {
+      "id": "features-componentmatrix-componentmatrixview",
+      "name": "ComponentMatrixView",
+      "path": "./src/features/component-matrix/component-matrix-view/component-matrix-view.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "SB_CORE-COMMON_0034 (TypeScriptWithoutCompilerApiError)",
+        "message": "Storybook found TypeScript 7.0.2 as the `typescript` package. TypeScript 7 does not include the compiler API that Storybook uses to read your component types for Controls and the Docs args table.\n\nIf package.json has no `typescript` entry, your package manager installed TypeScript 7 for Storybook's peer dependency. Add `typescript@^6` to the devDependencies in package.json.\n\nIf your project uses TypeScript 7, install TypeScript 7 and TypeScript 6 side by side. In package.json, replace the `typescript` entry in devDependencies with these two entries:\n\n  \"@typescript/native\": \"npm:typescript@^7.0.2\",\n  \"typescript\": \"npm:@typescript/typescript6@^6.0.2\"\n\n`tsc` stays on TypeScript 7, and the `typescript` package is TypeScript 6. Both entries are necessary.\n\nThen install dependencies and restart Storybook.\n\nMore info: https://storybook.js.org/docs/configure/integration/typescript?ref=error#typescript-7\n"
+      },
+      "stories": [
+        {
+          "id": "features-componentmatrix-componentmatrixview--search-filter-and-switch-to-linter",
+          "name": "Search Filter And Switch To Linter",
+          "snippet": "const SearchFilterAndSwitchToLinter = (args) => {\n  const [migrated, setMigrated] = useState<string[]>(args.migratedComponents);\n  return (\n    <ComponentMatrixView\n      enforceNoInlineStyle onNotify={fn()}\n      migratedComponents={migrated}\n      onToggleMigrated={(id) => {\n        setMigrated((prev) =>\n          prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]\n        );\n        args.onToggleMigrated(id);\n      }}\n      onBulkToggleCategory={(ids, markDone) => {\n        setMigrated((prev) => {\n          const set = new Set(prev);\n          for (const id of ids) {\n            if (markDone) set.add(id);\n            else set.delete(id);\n          }\n          return Array.from(set);\n        });\n        args.onBulkToggleCategory(ids, markDone);\n      }}\n    />\n  );\n};"
+        }
+      ],
+      "import": "import { ComponentMatrixView } from './component-matrix-view';\nimport { fn } from 'storybook/test';"
+    },
+    "features-componentmatrix-componentdetailpanel": {
+      "id": "features-componentmatrix-componentdetailpanel",
+      "name": "ComponentDetailPanel",
+      "path": "./src/features/component-matrix/component-matrix-view/partials/component-detail-panel.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "SB_CORE-COMMON_0034 (TypeScriptWithoutCompilerApiError)",
+        "message": "Storybook found TypeScript 7.0.2 as the `typescript` package. TypeScript 7 does not include the compiler API that Storybook uses to read your component types for Controls and the Docs args table.\n\nIf package.json has no `typescript` entry, your package manager installed TypeScript 7 for Storybook's peer dependency. Add `typescript@^6` to the devDependencies in package.json.\n\nIf your project uses TypeScript 7, install TypeScript 7 and TypeScript 6 side by side. In package.json, replace the `typescript` entry in devDependencies with these two entries:\n\n  \"@typescript/native\": \"npm:typescript@^7.0.2\",\n  \"typescript\": \"npm:@typescript/typescript6@^6.0.2\"\n\n`tsc` stays on TypeScript 7, and the `typescript` package is TypeScript 6. Both entries are necessary.\n\nThen install dependencies and restart Storybook.\n\nMore info: https://storybook.js.org/docs/configure/integration/typescript?ref=error#typescript-7\n"
+      },
+      "stories": [
+        {
+          "id": "features-componentmatrix-componentdetailpanel--dynamic-vars-audit-panel",
+          "name": "Dynamic Vars Audit Panel",
+          "snippet": "const DynamicVarsAuditPanel = (args) => {\n  const [migrated, setMigrated] = useState(args.isMigrated);\n  return (\n    <div className=\"max-w-md\">\n      <ComponentDetailPanel\n        component={COMPONENT_AUDIT_INVENTORY.find((c) => c.id === 'select') ?? COMPONENT_AUDIT_INVENTORY[0]} enforceNoInlineStyle\n        isMigrated={migrated}\n        onToggleMigrated={(id) => {\n          setMigrated((prev) => !prev);\n          args.onToggleMigrated(id);\n        }}\n      />\n    </div>\n  );\n};"
+        }
+      ],
+      "import": "import { ComponentDetailPanel } from './component-detail-panel';\nimport { COMPONENT_AUDIT_INVENTORY } from '../../../../shared/data/components';\nimport { fn } from 'storybook/test';"
+    },
+    "features-componentmatrix-livestylelinter": {
+      "id": "features-componentmatrix-livestylelinter",
+      "name": "LiveStyleLinter",
+      "path": "./src/features/component-matrix/component-matrix-view/partials/live-style-linter.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "SB_CORE-COMMON_0034 (TypeScriptWithoutCompilerApiError)",
+        "message": "Storybook found TypeScript 7.0.2 as the `typescript` package. TypeScript 7 does not include the compiler API that Storybook uses to read your component types for Controls and the Docs args table.\n\nIf package.json has no `typescript` entry, your package manager installed TypeScript 7 for Storybook's peer dependency. Add `typescript@^6` to the devDependencies in package.json.\n\nIf your project uses TypeScript 7, install TypeScript 7 and TypeScript 6 side by side. In package.json, replace the `typescript` entry in devDependencies with these two entries:\n\n  \"@typescript/native\": \"npm:typescript@^7.0.2\",\n  \"typescript\": \"npm:@typescript/typescript6@^6.0.2\"\n\n`tsc` stays on TypeScript 7, and the `typescript` package is TypeScript 6. Both entries are necessary.\n\nThen install dependencies and restart Storybook.\n\nMore info: https://storybook.js.org/docs/configure/integration/typescript?ref=error#typescript-7\n"
+      },
+      "stories": [
+        {
+          "id": "features-componentmatrix-livestylelinter--detect-and-resolve-inline-styles",
+          "name": "Detect And Resolve Inline Styles",
+          "snippet": "const DetectAndResolveInlineStyles = () => <LiveStyleLinter onNotify={fn()} />;"
+        }
+      ],
+      "import": "import { LiveStyleLinter } from './live-style-linter';\nimport { fn } from 'storybook/test';"
+    },
+    "features-overview-overviewview": {
+      "id": "features-overview-overviewview",
+      "name": "OverviewView",
+      "path": "./src/features/overview/overview-view/overview-view.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "SB_CORE-COMMON_0034 (TypeScriptWithoutCompilerApiError)",
+        "message": "Storybook found TypeScript 7.0.2 as the `typescript` package. TypeScript 7 does not include the compiler API that Storybook uses to read your component types for Controls and the Docs args table.\n\nIf package.json has no `typescript` entry, your package manager installed TypeScript 7 for Storybook's peer dependency. Add `typescript@^6` to the devDependencies in package.json.\n\nIf your project uses TypeScript 7, install TypeScript 7 and TypeScript 6 side by side. In package.json, replace the `typescript` entry in devDependencies with these two entries:\n\n  \"@typescript/native\": \"npm:typescript@^7.0.2\",\n  \"typescript\": \"npm:@typescript/typescript6@^6.0.2\"\n\n`tsc` stays on TypeScript 7, and the `typescript` package is TypeScript 6. Both entries are necessary.\n\nThen install dependencies and restart Storybook.\n\nMore info: https://storybook.js.org/docs/configure/integration/typescript?ref=error#typescript-7\n"
+      },
+      "stories": [
+        {
+          "id": "features-overview-overviewview--interactive-scope-modeling",
+          "name": "Interactive Scope Modeling",
+          "snippet": "const InteractiveScopeModeling = (args) => {\n  const [scope, setScope] = useState<ForkScopeConfig>(args.scope);\n  const effort = useMemo(() => calculateEffortSummary(scope, COMPONENT_AUDIT_INVENTORY), [scope]);\n  return (\n    <OverviewView\n      mitigatedCount={2} totalBlockers={7} migratedCount={12} totalComponents={COMPONENT_AUDIT_INVENTORY.length} onNavigate={fn()}\n      scope={scope}\n      effort={effort}\n      onUpdateScope={(patch) => {\n        setScope((prev) => ({ ...prev, ...patch }));\n        args.onUpdateScope(patch);\n      }}\n    />\n  );\n};"
+        }
+      ],
+      "import": "import { OverviewView } from './overview-view';\nimport { DEFAULT_SCOPE, calculateEffortSummary } from '../../../shared/utils/calculations';\nimport { COMPONENT_AUDIT_INVENTORY } from '../../../shared/data/components';\nimport { fn } from 'storybook/test';"
+    },
+    "features-overview-scopetogglerow": {
+      "id": "features-overview-scopetogglerow",
+      "name": "ScopeToggleRow",
+      "path": "./src/features/overview/overview-view/partials/scope-toggle-row.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "SB_CORE-COMMON_0034 (TypeScriptWithoutCompilerApiError)",
+        "message": "Storybook found TypeScript 7.0.2 as the `typescript` package. TypeScript 7 does not include the compiler API that Storybook uses to read your component types for Controls and the Docs args table.\n\nIf package.json has no `typescript` entry, your package manager installed TypeScript 7 for Storybook's peer dependency. Add `typescript@^6` to the devDependencies in package.json.\n\nIf your project uses TypeScript 7, install TypeScript 7 and TypeScript 6 side by side. In package.json, replace the `typescript` entry in devDependencies with these two entries:\n\n  \"@typescript/native\": \"npm:typescript@^7.0.2\",\n  \"typescript\": \"npm:@typescript/typescript6@^6.0.2\"\n\n`tsc` stays on TypeScript 7, and the `typescript` package is TypeScript 6. Both entries are necessary.\n\nThen install dependencies and restart Storybook.\n\nMore info: https://storybook.js.org/docs/configure/integration/typescript?ref=error#typescript-7\n"
+      },
+      "stories": [
+        {
+          "id": "features-overview-scopetogglerow--interactive-toggle",
+          "name": "Interactive Toggle",
+          "snippet": "const InteractiveToggle = (args) => {\n  const [checked, setChecked] = useState(args.checked);\n  return (\n    <div className=\"max-w-lg border border-[#222B36] bg-[#11161D]\">\n      <ScopeToggleRow\n        id=\"story-toggle-lint\" label=\"Strict Zero-Inline-Style Lint Gate\" description={'Ban style={...} via Oxlint/ESLint + Omit<..., \"style\">; data-* attrs or JSX wrappers only.'}\n        checked={checked}\n        impactLabel={checked ? 'Enforced' : 'Off'}\n        onToggle={() => {\n          setChecked((prev) => !prev);\n          args.onToggle();\n        }}\n      />\n    </div>\n  );\n};"
+        }
+      ],
+      "import": "import { ScopeToggleRow } from './scope-toggle-row';\nimport { fn } from 'storybook/test';"
+    },
+    "shared-ui-barmeter": {
+      "id": "shared-ui-barmeter",
+      "name": "BarMeter",
+      "path": "./src/shared/ui/bar-meter/bar-meter.stories.tsx",
+      "jsDocTags": {},
+      "error": {
+        "name": "SB_CORE-COMMON_0034 (TypeScriptWithoutCompilerApiError)",
+        "message": "Storybook found TypeScript 7.0.2 as the `typescript` package. TypeScript 7 does not include the compiler API that Storybook uses to read your component types for Controls and the Docs args table.\n\nIf package.json has no `typescript` entry, your package manager installed TypeScript 7 for Storybook's peer dependency. Add `typescript@^6` to the devDependencies in package.json.\n\nIf your project uses TypeScript 7, install TypeScript 7 and TypeScript 6 side by side. In package.json, replace the `typescript` entry in devDependencies with these two entries:\n\n  \"@typescript/native\": \"npm:typescript@^7.0.2\",\n  \"typescript\": \"npm:@typescript/typescript6@^6.0.2\"\n\n`tsc` stays on TypeScript 7, and the `typescript` package is TypeScript 6. Both entries are necessary.\n\nThen install dependencies and restart Storybook.\n\nMore info: https://storybook.js.org/docs/configure/integration/typescript?ref=error#typescript-7\n"
+      },
+      "stories": [
+        {
+          "id": "shared-ui-barmeter--emerald-progress",
+          "name": "Emerald Progress",
+          "snippet": "const EmeraldProgress = () => <BarMeter value={68} max={100} tone=\"emerald\" label=\"Migration completion progress\" />;"
+        },
+        {
+          "id": "shared-ui-barmeter--clamped-overflow-amber",
+          "name": "Clamped Overflow Amber",
+          "snippet": "const ClampedOverflowAmber = () => <BarMeter value={145} max={100} tone=\"amber\" label=\"Lint audit budget\" />;"
+        },
+        {
+          "id": "shared-ui-barmeter--critical-zero-crimson",
+          "name": "Critical Zero Crimson",
+          "snippet": "const CriticalZeroCrimson = () => <BarMeter value={-10} max={100} tone=\"crimson\" label=\"Critical risk indicator\" />;"
+        }
+      ],
+      "import": "import { BarMeter } from './bar-meter';"
+    }
+  },
+  "meta": {
+    "docgen": "react-docgen",
+    "durationMs": 121
+  }
+}

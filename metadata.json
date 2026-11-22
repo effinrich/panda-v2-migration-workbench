@@ -1,0 +1,6 @@
+{
+  "name": "Panda v2 Migration Workbench",
+  "description": "Interactive engineering migration analyzer and architecture comparison workstation for branching Open-Code Park UI onto Panda CSS v2 versus building greenfield on Ark UI and Panda CSS v2, with strict zero-inline-style lint auditing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
